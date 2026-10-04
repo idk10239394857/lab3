@@ -1,0 +1,69 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Assign grid names */
+.header { grid-area: header; }
+.nav    { grid-area: nav; }
+.main   { grid-area: main; }
+.footer { grid-area: footer; }
+
+/* Mobile layout (< 768px) */
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  gap: 16px;
+  padding: 16px;
+}
+
+.header,
+.nav,
+.main,
+.footer {
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.cards {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  padding: 16px;
+  border: 1px solid #999;
+}
+
+/* Desktop layout (>= 768px) */
+@media (min-width: 768px) {
+  .wrapper {
+    grid-template-areas:
+      "header header"
+      "nav main"
+      "footer footer";
+    grid-template-columns: 220px 1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-1 {
+    grid-column: 1 / -1;
+  }
+}
